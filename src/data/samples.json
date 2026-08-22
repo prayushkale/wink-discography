@@ -1,0 +1,202 @@
+{
+  "single-01": {
+    "slug": "single-01-sugar-baby-love",
+    "src": "/samples/single-01-sugar-baby-love.mp3"
+  },
+  "single-02": {
+    "slug": "single-02-amaryllis",
+    "src": "/samples/single-02-amaryllis.mp3"
+  },
+  "single-03": {
+    "slug": "single-03-ai-ga-tomaranai",
+    "src": "/samples/single-03-ai-ga-tomaranai.mp3"
+  },
+  "single-04": {
+    "slug": "single-04-namida-wo-misenai-de",
+    "src": "/samples/single-04-namida-wo-misenai-de.mp3"
+  },
+  "single-05": {
+    "slug": "single-05-samishii-nettaigyo",
+    "src": "/samples/single-05-samishii-nettaigyo.mp3"
+  },
+  "single-06": {
+    "slug": "single-06-one-night-in-heaven",
+    "src": "/samples/single-06-one-night-in-heaven.mp3"
+  },
+  "single-07": {
+    "slug": "single-07-sexy-music",
+    "src": "/samples/single-07-sexy-music.mp3"
+  },
+  "single-08": {
+    "slug": "single-08-yoru-ni-hagurete",
+    "src": "/samples/single-08-yoru-ni-hagurete.mp3"
+  },
+  "single-09": {
+    "slug": "single-09-new-moon-ni-aimashou",
+    "src": "/samples/single-09-new-moon-ni-aimashou.mp3"
+  },
+  "single-10": {
+    "slug": "single-10-kitto-atsui-kuchibiru-remain",
+    "src": "/samples/single-10-kitto-atsui-kuchibiru-remain.mp3"
+  },
+  "single-11": {
+    "slug": "single-11-manatsu-no-tremolo",
+    "src": "/samples/single-11-manatsu-no-tremolo.mp3"
+  },
+  "single-12": {
+    "slug": "single-12-haitoku-no-scenario",
+    "src": "/samples/single-12-haitoku-no-scenario.mp3"
+  },
+  "single-13": {
+    "slug": "single-13-tsuioku-no-heroine-image-na-kankei",
+    "src": "/samples/single-13-tsuioku-no-heroine-image-na-kankei.mp3"
+  },
+  "single-14": {
+    "slug": "single-14-matenro-museum",
+    "src": "/samples/single-14-matenro-museum.mp3"
+  },
+  "single-15": {
+    "slug": "single-15-furimukanaide",
+    "src": "/samples/single-15-furimukanaide.mp3"
+  },
+  "single-16": {
+    "slug": "single-16-real-na-yume-no-joken",
+    "src": "/samples/single-16-real-na-yume-no-joken.mp3"
+  },
+  "single-17": {
+    "slug": "single-17-eien-no-ladydoll-voyage-voyage",
+    "src": "/samples/single-17-eien-no-ladydoll-voyage-voyage.mp3"
+  },
+  "single-18": {
+    "slug": "single-18-kekkon-shiyoune",
+    "src": "/samples/single-18-kekkon-shiyoune.mp3"
+  },
+  "single-19": {
+    "slug": "single-19-sakihokore-itoshisa-yo",
+    "src": "/samples/single-19-sakihokore-itoshisa-yo.mp3"
+  },
+  "single-20": {
+    "slug": "single-20-itsumademo-suki-de-itakute",
+    "src": "/samples/single-20-itsumademo-suki-de-itakute.mp3"
+  },
+  "single-21": {
+    "slug": "single-21-twinkle-twinkle",
+    "src": "/samples/single-21-twinkle-twinkle.mp3"
+  },
+  "single-22": {
+    "slug": "single-22-cherie-mon-cherie",
+    "src": "/samples/single-22-cherie-mon-cherie.mp3"
+  },
+  "single-23": {
+    "slug": "single-23-watashitachi-rashii-rule",
+    "src": "/samples/single-23-watashitachi-rashii-rule.mp3"
+  },
+  "single-24": {
+    "slug": "single-24-jive-into-the-night-yaban-na-yoru-ni-hyper-euro-",
+    "src": "/samples/single-24-jive-into-the-night-yaban-na-yoru-ni-hyper-euro-.mp3"
+  },
+  "single-25": {
+    "slug": "single-25-angel-love-story-akiiro-no-tenshi",
+    "src": "/samples/single-25-angel-love-story-akiiro-no-tenshi.mp3"
+  },
+  "single-26": {
+    "slug": "single-26-special-to-me",
+    "src": "/samples/single-26-special-to-me.mp3"
+  },
+  "album-01-track-09": {
+    "slug": "single-01-sugar-baby-love",
+    "src": "/samples/single-01-sugar-baby-love.mp3"
+  },
+  "album-02-track-01": {
+    "slug": "single-03-ai-ga-tomaranai",
+    "src": "/samples/single-03-ai-ga-tomaranai.mp3"
+  },
+  "album-03-track-10": {
+    "slug": "single-04-namida-wo-misenai-de",
+    "src": "/samples/single-04-namida-wo-misenai-de.mp3"
+  },
+  "album-04-track-02": {
+    "slug": "single-06-one-night-in-heaven",
+    "src": "/samples/single-06-one-night-in-heaven.mp3"
+  },
+  "album-04-track-10": {
+    "slug": "album-04-track-10-twin-memories-samishii-nettaigyo-remix",
+    "src": "/samples/album-04-track-10-twin-memories-samishii-nettaigyo-remix.mp3"
+  },
+  "album-05-track-01": {
+    "slug": "single-07-sexy-music",
+    "src": "/samples/single-07-sexy-music.mp3"
+  },
+  "album-06-track-01": {
+    "slug": "single-09-new-moon-ni-aimashou",
+    "src": "/samples/single-09-new-moon-ni-aimashou.mp3"
+  },
+  "album-06-track-09": {
+    "slug": "single-08-yoru-ni-hagurete",
+    "src": "/samples/single-08-yoru-ni-hagurete.mp3"
+  },
+  "album-07-track-01": {
+    "slug": "single-11-manatsu-no-tremolo",
+    "src": "/samples/single-11-manatsu-no-tremolo.mp3"
+  },
+  "album-07-track-08": {
+    "slug": "single-10-kitto-atsui-kuchibiru-remain",
+    "src": "/samples/single-10-kitto-atsui-kuchibiru-remain.mp3"
+  },
+  "album-08-track-10": {
+    "slug": "single-12-haitoku-no-scenario",
+    "src": "/samples/single-12-haitoku-no-scenario.mp3"
+  },
+  "album-09-track-03": {
+    "slug": "single-14-matenro-museum",
+    "src": "/samples/single-14-matenro-museum.mp3"
+  },
+  "album-09-track-09": {
+    "slug": "album-09-track-09-each-side-of-screen-tsuioku-no-heroine",
+    "src": "/samples/album-09-track-09-each-side-of-screen-tsuioku-no-heroine.mp3"
+  },
+  "album-09-track-12": {
+    "slug": "album-09-track-12-each-side-of-screen-image-na-kankei",
+    "src": "/samples/album-09-track-12-each-side-of-screen-image-na-kankei.mp3"
+  },
+  "album-10-track-01": {
+    "slug": "single-16-real-na-yume-no-joken",
+    "src": "/samples/single-16-real-na-yume-no-joken.mp3"
+  },
+  "album-10-track-09": {
+    "slug": "single-15-furimukanaide",
+    "src": "/samples/single-15-furimukanaide.mp3"
+  },
+  "album-11-track-01": {
+    "slug": "single-18-kekkon-shiyoune",
+    "src": "/samples/single-18-kekkon-shiyoune.mp3"
+  },
+  "album-11-track-07": {
+    "slug": "single-17-eien-no-ladydoll-voyage-voyage",
+    "src": "/samples/single-17-eien-no-ladydoll-voyage-voyage.mp3"
+  },
+  "album-12-track-07": {
+    "slug": "single-19-sakihokore-itoshisa-yo",
+    "src": "/samples/single-19-sakihokore-itoshisa-yo.mp3"
+  },
+  "album-13-track-04": {
+    "slug": "album-13-track-04-overture-twinkle-twinkle-60s-version",
+    "src": "/samples/album-13-track-04-overture-twinkle-twinkle-60s-version.mp3"
+  },
+  "album-13-track-05": {
+    "slug": "single-20-itsumademo-suki-de-itakute",
+    "src": "/samples/single-20-itsumademo-suki-de-itakute.mp3"
+  },
+  "album-14-track-03": {
+    "slug": "single-22-cherie-mon-cherie",
+    "src": "/samples/single-22-cherie-mon-cherie.mp3"
+  },
+  "album-15-track-10": {
+    "slug": "single-23-watashitachi-rashii-rule",
+    "src": "/samples/single-23-watashitachi-rashii-rule.mp3"
+  },
+  "album-15-track-11": {
+    "slug": "single-24-jive-into-the-night-yaban-na-yoru-ni-hyper-euro-",
+    "src": "/samples/single-24-jive-into-the-night-yaban-na-yoru-ni-hyper-euro-.mp3"
+  }
+}
