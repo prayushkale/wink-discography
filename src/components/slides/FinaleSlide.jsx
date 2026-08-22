@@ -7,7 +7,7 @@ export default function FinaleSlide({ data, epilogue = [] }) {
         THANK YOU, WINK
       </h2>
 
-      <div className="grid grid-cols-2 gap-x-14 gap-y-3 mt-10 max-w-4xl text-sm text-slate-300">
+      <div className="grid grid-cols-2 gap-x-14 gap-y-3 mt-10 max-w-5xl text-lg text-slate-200 leading-relaxed">
         <p><span className="text-slate-500">Chart legacy:</span> {g.chartLegacy}</p>
         <p><span className="text-slate-500">Awards:</span> {g.awards}</p>
         <p><span className="text-slate-500">Reunions:</span> {g.reunions}</p>
@@ -18,7 +18,7 @@ export default function FinaleSlide({ data, epilogue = [] }) {
         <div className="card px-6 py-3 mt-8 max-w-2xl text-center opacity-80">
           <p className="text-[10px] tracking-[0.3em] text-slate-500 mb-1">EPILOGUE · 30TH ANNIVERSARY</p>
           {epilogue.map((s) => (
-            <p key={s.num} className="text-sm text-slate-200">
+            <p key={s.num} className="text-lg text-slate-100">
               {s.titleEn} <span className="jp text-slate-500">({s.releaseDate.slice(0, 4)} analog reissue)</span>
             </p>
           ))}

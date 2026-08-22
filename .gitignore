@@ -17,3 +17,6 @@ scripts/failed.txt
 .cache/
 .DS_Store
 **/.DS_Store
+
+# local chrome for smoke tests
+chrome/

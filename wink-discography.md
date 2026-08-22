@@ -9,7 +9,7 @@
 - **Label**: PolyStar | **Management**: Upright Music (1988–1994) → P-ARTISTS (1994–1996)
 - **Producer / total direction**: Mizuhashi Haruo (水橋春夫, d. 2018)
 - **Choreography**: Igarashi Kaoruko (五十嵐薫子, now 香瑠鼓) — the famous "robot dance"
-- **Style**: expressionless, doll-like performances; extravagant lolita fashion; early hits were Japanese-language covers of European pop songs; later ~60% of their ~180 recorded songs were originals
+- **Style**: expressionless, doll-like performances; extravagant doll-inspired fashion; early hits were Japanese-language covers of European pop songs; later ~60% of their ~180 recorded songs were originals
 - **Awards**: 31st Japan Record Award Grand Prix (1989, "Samishii Nettaigyo"); 40th Kōhaku Uta Gassen (1989); Japan Gold Disc Award (Twin Memories); 1989 All-Japan Cable Awards Grand Prix
 - **Chart legacy**: 5 Oricon #1 singles; 10 Top-3 singles; biggest album "Especially for You" (508,000 copies, Platinum)
 - **Reunions**: Japan Record Awards specials (1998, 2008, 2018), NHK "Omoide no Melody" (2018); 30th-anniversary digital remasters & analog singles (2018)

@@ -5,7 +5,7 @@ export default function YearDividerSlide({ year }) {
         {year}
       </h2>
       <div className="w-56 h-px bg-gradient-to-r from-transparent via-teal-300/70 to-transparent mt-2" />
-      <p className="font-display tracking-[0.6em] text-teal-200/70 text-xs mt-6">WINK DISCOGRAPHY</p>
+      <p className="font-display tracking-[0.6em] text-teal-200/70 text-xl mt-6">WINK DISCOGRAPHY</p>
     </div>
   )
 }
