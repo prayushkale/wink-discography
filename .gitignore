@@ -1,2 +1,22 @@
 # Command Code local config / taste preferences
 .commandcode/
+
+# deps / build
+node_modules/
+dist/
+render/
+
+# media (copyrighted, local only)
+public/samples/
+public/covers/
+
+# fetch logs
+scripts/failed.txt
+
+# caches / OS junk
+.cache/
+.DS_Store
+**/.DS_Store
+
+# local chrome for smoke tests
+chrome/
