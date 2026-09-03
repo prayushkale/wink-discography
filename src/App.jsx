@@ -21,6 +21,59 @@ const albumCoverSlug = (album, i) =>
     .replace(/\s+/g, '-')
     .slice(0, 48)}.jpg`
 
+/**
+ * Estimated chorus start per track for the single-slide showcase player.
+ * Deliberately NOT audio analysis: a structural guess for late-80s/90s J-pop
+ * (intro ~8–15s, verse, first chorus lands ~0:38–0:52 of the PV). Each value
+ * is the seconds offset used as the YouTube start point; fine-tune freely.
+ */
+const CHORUS_STARTS = {
+  // sugar baby love (official MV ~2:41)
+  'single-01': 42,
+}
+/**
+ * Same deal for the ORIGINAL-artist clips ("hear the original"): a structural
+ * guess, not audio analysis. Keyed by track key; falls back to the single's
+ * CHORUS_STARTS entry when the clip has no guess of its own.
+ */
+const ORIGINAL_STARTS = {
+  'single-01-A': 30, // The Rubettes' 1974 original (~2:49; chorus arrives earlier than the PV)
+}
+/**
+ * Estimated chorus starts (seconds) for the Moonlight Serenade album slide.
+ * Structural guesses for late-80s J-pop, not audio analysis — every play
+ * click starts a random 0–10s past the estimate so it lands somewhere
+ * inside/near the first chorus.
+ */
+const ALBUM_CHORUS_STARTS = {
+  a01: {
+    1: 38, // 渚のモノガタリ
+    2: 40, // NAVY BLUE
+    3: 35, // BYE BYE BABY
+    5: 42, // DANCE WITH ME
+    6: 40, // すてきなHappy Birthday
+    9: 30, // SUGAR BABY LOVE (cover, chorus arrives earlier)
+    10: 44, // ジャスミンは悲しい香り
+  },
+}
+const buildChorusConfig = (single, tracks) => {
+  const est = CHORUS_STARTS[`single-${pad2(single.num)}`]
+  if (!est) return null
+  const cfg = {}
+  for (const t of tracks) {
+    if (t.videoId) cfg[t.key] = { key: t.key, videoId: t.videoId, startSeconds: est, title: t.titleEn }
+    if (t.originalVideoId) {
+      cfg[`original:${t.key}`] = {
+        key: `original:${t.key}`,
+        videoId: t.originalVideoId,
+        startSeconds: ORIGINAL_STARTS[t.key] ?? est,
+        title: `${t.original?.split('—')[0]?.trim() || t.titleEn} (original)`,
+      }
+    }
+  }
+  return { tracks: cfg }
+}
+
 /** build the ordered slide list: intro -> per-year (divider + releases) -> finale */
 function buildSlides(data) {
   const overrides = getOverrides()
@@ -62,6 +115,10 @@ function buildSlides(data) {
         ...t,
         key: `${key}-${t.role || ti}`,
         videoId: resolve(key, t.video),
+        originalVideoId: t.originalVideo ? extractVideoId(t.originalVideo) : null,
+        originalStartSeconds: t.originalVideo
+          ? (ORIGINAL_STARTS[`${key}-${t.role || ti}`] ?? CHORUS_STARTS[key])
+          : null,
       }))
       slides.push({
         type: 'single',
@@ -69,6 +126,12 @@ function buildSlides(data) {
         tracks,
         label: s.titleEn,
         sampleSrc: tracks[0]?.videoId ? 'youtube' : null,
+        // slide 3 (Sugar Baby Love) showcase: song cards kept intact, artwork
+        // beside the title on the left, a max-size YouTube player on the right
+        // whose play buttons start each song at an ESTIMATED chorus point
+        // (~0:38–0:48, where J-pop first choruses normally land). No audio
+        // analysis — tunable by editing these numbers.
+        chorus: s.num === 1 ? buildChorusConfig(s, tracks) : null,
       })
     } else {
       const prefix = `a${pad2(item.coverIdx + 1)}`
@@ -76,6 +139,7 @@ function buildSlides(data) {
         ...t,
         key: `${prefix}-track-${pad2(t.no)}`,
         videoId: resolve(`${prefix}-track-${pad2(t.no)}`, t.video),
+        chorusStart: ALBUM_CHORUS_STARTS[prefix]?.[t.no] ?? null,
       }))
       slides.push({
         type: 'album',
@@ -193,9 +257,13 @@ export default function App() {
               ) : slide.type === 'year' ? (
                 <YearDividerSlide year={slide.year} />
               ) : slide.type === 'single' ? (
-                <SingleSlide single={slide.item.single} sample={slide.sample} tracks={slide.tracks} />
+                <SingleSlide
+                  single={slide.item.single}
+                  tracks={slide.tracks}
+                  chorus={slide.chorus}
+                />
               ) : slide.type === 'album' ? (
-                <AlbumSlide entry={slide.item} tracks={slide.tracks} />
+                <AlbumSlide entry={slide.item} tracks={slide.tracks} albumPrefix={slide.albumPrefix} />
               ) : (
                 <FinaleSlide data={discography} epilogue={slide.epilogue} />
               ))}

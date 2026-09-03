@@ -1,14 +1,26 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import { PlayButton, TrackDetails, riajChip } from '../TrackBits.jsx'
 import { usePlayer } from '../../player/PlayerProvider.jsx'
 
-export default function AlbumSlide({ entry, tracks }) {
+export default function AlbumSlide({ entry, tracks, albumPrefix }) {
   const { album, coverSlug } = entry
   const player = usePlayer()
+  const videoSlotRef = useRef(null)
 
   const playable = useMemo(() => tracks.filter((t) => t.videoId), [tracks])
   const playingKey = player.current?.key
-  const albumPlaying = playingKey?.startsWith(entry.albumPrefix)
+  const albumPlaying = Boolean(albumPrefix && playingKey?.startsWith(albumPrefix))
+
+  // While an album track is playing, host the shared YouTube player in place
+  // of the cover art (left side). When playback stops, the artwork returns.
+  // Depends only on stable callbacks — not the whole context object.
+  const { attachHost, detachHost } = player
+  useEffect(() => {
+    if (albumPlaying && videoSlotRef.current) attachHost(videoSlotRef.current)
+    else detachHost()
+  }, [albumPlaying, attachHost, detachHost])
+  // navigating away from the slide: return the player to its home position
+  useEffect(() => () => detachHost(), [detachHost])
 
   const playAlbum = () => {
     if (albumPlaying) player.stop()
@@ -17,18 +29,31 @@ export default function AlbumSlide({ entry, tracks }) {
 
   return (
     <div className="h-full flex items-center gap-12 px-20 py-10">
-      {/* cover art */}
+      {/* cover art — replaced by the playing video while a track is active */}
       <div className="shrink-0 w-[32rem]">
-        <div className="rounded-2xl overflow-hidden border border-white/15 shadow-[0_0_60px_rgba(94,234,212,0.15)] aspect-square bg-gradient-to-br from-purple-900/60 to-navy-900/80 flex items-center justify-center">
-          <img
-            src={`/covers/${coverSlug}`}
-            alt={`${album.titleEn} cover`}
-            className="w-full h-full object-cover"
-            onError={(e) => {
-              e.currentTarget.style.display = 'none'
-            }}
-          />
+        <div
+          className={`relative rounded-2xl overflow-hidden border border-white/15 shadow-[0_0_60px_rgba(94,234,212,0.15)] bg-black flex items-center justify-center ${
+            albumPlaying ? 'aspect-video' : 'aspect-square'
+          }`}
+        >
+          {albumPlaying ? (
+            <div ref={videoSlotRef} className="w-full h-full" />
+          ) : (
+            <img
+              src={`/covers/${coverSlug}`}
+              alt={`${album.titleEn} cover`}
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none'
+              }}
+            />
+          )}
         </div>
+        {albumPlaying && player.current && (
+          <p className="font-display tracking-[0.2em] text-xs text-pink-200 truncate mt-3 px-3 text-center">
+            ♪ {player.current.title}
+          </p>
+        )}
         <div className="mt-5">
           <p className="jp text-4xl font-bold text-white neon-cyan">{album.titleJp || album.titleEn}</p>
           {album.titleJp && <p className="font-display text-2xl text-slate-300">{album.titleEn}</p>}

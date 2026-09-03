@@ -31,6 +31,7 @@
       "num": 1,
       "titleEn": "Sugar Baby Love",
       "titleJp": "",
+      "coverImage": "/covers/single-01-sugar-baby-love.jpg",
       "releaseDate": "1988-04-27",
       "peak": "#20",
       "sales": "61,000",
@@ -61,7 +62,7 @@
           "credits": "作詞 (Lyrics): Joe Lemon (森雪之丞) | 作曲 (Music): 見岳章 | 編曲 (Arrangement): 鷺巣詩郎",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/ppdKtjlhx8U",
           "originalVideo": null,
           "notes": "Insert song for 熱っぽいの! (used as an instrumental version in the drama).",
           "soloMember": null

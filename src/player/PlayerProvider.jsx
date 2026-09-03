@@ -1,21 +1,102 @@
-import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react'
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { loadYT } from './yt.js'
 
 const PlayerCtx = createContext(null)
 
 /**
- * Global YouTube-based player. One shared hidden player; playing a new item
- * replaces the old one. A queue can be supplied so albums auto-advance.
+ * Global YouTube-based player. One shared player; playing a new item replaces
+ * the old one. A queue can be supplied so albums auto-advance.
+ *
+ * The player iframe lives in a movable wrapper. By default it sits in a fixed
+ * bottom-right "mini player"; a slide can call attachHost(el) to move it into
+ * an on-slide container (e.g. in place of album artwork) and detachHost() to
+ * return it. YouTube iframes reset when reparented, so each move recreates the
+ * player and resumes the same video from the same position.
  */
 export function PlayerProvider({ children }) {
   const [current, setCurrent] = useState(null) // {key, videoId, title, meta}
   const [playing, setPlaying] = useState(false)
   const [ready, setReady] = useState(false)
+  const [attached, setAttached] = useState(false) // player currently living inside a slide
+
   const playerRef = useRef(null)
-  const hostRef = useRef(null)
+  const hostRef = useRef(null) // element the YT.Player is created on
+  const wrapRef = useRef(null) // movable wrapper containing hostRef
+  const homeRef = useRef(null) // fixed home position for the wrapper
   const queueRef = useRef([])
   const idxRef = useRef(-1)
   const pendingRef = useRef(null)
+  const currentRef = useRef(null)
+  const playingRef = useRef(false)
+  const ytReadyRef = useRef(false)
+
+  currentRef.current = current
+  playingRef.current = playing
+
+  // (re)create the YT.Player, resuming current state. YT.Player REPLACES its
+  // host element with an iframe, so a fresh host div is built inside the
+  // movable wrapper on every spawn.
+  const spawnPlayer = useCallback((startSeconds = 0) => {
+    if (!wrapRef.current) return
+    const prev = playerRef.current
+    const resumeId = currentRef.current?.videoId
+    const resumePlaying = playingRef.current
+    if (prev) {
+      try {
+        prev.destroy()
+      } catch {
+        /* ignore */
+      }
+      playerRef.current = null
+    }
+    const host = document.createElement('div')
+    // explicit size + absolute fill — the YT iframe is sized against this
+    // element, and pinning it keeps stray sibling divs from offsetting it
+    host.style.position = 'absolute'
+    host.style.inset = '0'
+    host.style.width = '100%'
+    host.style.height = '100%'
+    wrapRef.current.appendChild(host)
+    hostRef.current = host
+    loadYT().then((YT) => {
+      if (!hostRef.current || hostRef.current !== host || !host.isConnected) return
+      const opts = {
+        width: '100%',
+        height: '100%',
+        playerVars: {
+          autoplay: resumePlaying ? 1 : 0,
+          rel: 0,
+          modestbranding: 1,
+          playsinline: 1,
+          origin: window.location.origin,
+          ...(startSeconds ? { start: Math.floor(startSeconds) } : {}),
+        },
+        events: {
+          onReady: (e) => {
+            setReady(true)
+            ytReadyRef.current = true
+            if (pendingRef.current) {
+              const item = pendingRef.current
+              pendingRef.current = null
+              if (item?.videoId) {
+                e.target.loadVideoById(item.videoId)
+                e.target.playVideo()
+              }
+            }
+          },
+          onStateChange: (e) => {
+            if (e.data === YT.PlayerState.PLAYING) setPlaying(true)
+            else if (e.data === YT.PlayerState.ENDED) advance()
+            else if (e.data === YT.PlayerState.PAUSED) setPlaying(false)
+          },
+        },
+      }
+      // videoId must be omitted entirely when absent — passing undefined
+      // makes the YT API throw "Invalid video id"
+      if (resumeId) opts.videoId = resumeId
+      playerRef.current = new YT.Player(host, opts)
+    })
+  }, [])
 
   const stop = useCallback(() => {
     try {
@@ -38,13 +119,21 @@ export function PlayerProvider({ children }) {
     }
     idxRef.current = i
     const item = q[i]
-    setCurrent(item)
+    if (!item?.videoId) return
+    setCurrent(item.title ? item : { ...item, title: item.titleEn ?? item.titleJp ?? 'Unknown track' })
     setPlaying(true)
+    // Tracks with an estimated chorus start begin at a random point inside
+    // the chorus window (estimate + 0–10s jitter) so every click lands a
+    // little differently while still reliably inside/near the first chorus.
+    const jitter = item.chorusStart ? Math.floor(Math.random() * 10) : 0
+    const startSeconds = item.chorusStart ? item.chorusStart + jitter : null
     try {
-      playerRef.current?.loadVideoById(item.videoId)
+      playerRef.current?.loadVideoById(
+        startSeconds ? { videoId: item.videoId, startSeconds } : item.videoId,
+      )
       playerRef.current?.playVideo()
     } catch {
-      pendingRef.current = item.videoId
+      pendingRef.current = item
     }
   }, [stop])
 
@@ -56,37 +145,39 @@ export function PlayerProvider({ children }) {
   const advance = useCallback(() => {
     playIndex(idxRef.current + 1)
   }, [playIndex])
-
-  // create the shared player once
-  useEffect(() => {
-    let dead = false
-    loadYT().then((YT) => {
-      if (dead || !hostRef.current) return
-      playerRef.current = new YT.Player(hostRef.current, {
-        height: '180',
-        width: '320',
-        playerVars: { autoplay: 1, rel: 0, modestbranding: 1, playsinline: 1 },
-        events: {
-          onReady: (e) => {
-            setReady(true)
-            if (pendingRef.current) {
-              e.target.loadVideoById(pendingRef.current)
-              e.target.playVideo()
-              pendingRef.current = null
-            }
-          },
-          onStateChange: (e) => {
-            if (e.data === YT.PlayerState.PLAYING) setPlaying(true)
-            else if (e.data === YT.PlayerState.ENDED) advance()
-            else if (e.data === YT.PlayerState.PAUSED) setPlaying(false)
-          },
-        },
-      })
-    })
-    return () => {
-      dead = true
+  // move the player into an on-slide container (or back to its fixed home)
+  const attachHost = useCallback((el) => {
+    if (!el || !wrapRef.current || wrapRef.current.parentElement === el) return
+    // capture position so playback resumes seamlessly after the iframe reset
+    let t = 0
+    try {
+      t = playerRef.current?.getCurrentTime?.() ?? 0
+    } catch {
+      /* ignore */
     }
-  }, [advance])
+    el.appendChild(wrapRef.current)
+    setAttached(true)
+    spawnPlayer(t)
+  }, [spawnPlayer])
+
+  const detachHost = useCallback(() => {
+    if (!wrapRef.current || !homeRef.current || wrapRef.current.parentElement === homeRef.current) return
+    let t = 0
+    try {
+      t = playerRef.current?.getCurrentTime?.() ?? 0
+    } catch {
+      /* ignore */
+    }
+    homeRef.current.appendChild(wrapRef.current)
+    setAttached(false)
+    spawnPlayer(t)
+  }, [spawnPlayer])
+
+  // create the shared player once (in its home position)
+  useEffect(() => {
+    spawnPlayer(0)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const toggle = useCallback(
     (queue, i) => {
@@ -97,16 +188,24 @@ export function PlayerProvider({ children }) {
     [current, playing, play, stop],
   )
 
+  // keep the context value stable between renders: slides key effects off
+  // `player`, so a fresh object every render would re-run attach/detach effects
+  // and constantly tear down the YouTube iframe mid-playback.
+  const value = useMemo(
+    () => ({ current, playing, ready, attached, play, toggle, stop, advance, attachHost, detachHost }),
+    [current, playing, ready, attached, play, toggle, stop, advance, attachHost, detachHost],
+  )
+
   return (
-    <PlayerCtx.Provider value={{ current, playing, ready, play, toggle, stop, advance }}>
+    <PlayerCtx.Provider value={value}>
       {children}
       {/*
         The YT.Player replaces the host div with an iframe, so React must never
-        insert/remove siblings of that div. Keep the "now playing" header in a
-        SEPARATE fixed element and keep the host div an only child of its own
-        stable wrapper.
+        insert/remove siblings of that div. The "now playing" header lives in a
+        SEPARATE fixed element and the host div stays an only child of its own
+        stable wrapper (which slides may reparent via attachHost).
       */}
-      {current && (
+      {current && !attached && (
         <div className="fixed right-6 bottom-[19rem] z-40 card px-3 py-1.5 shadow-[0_0_40px_rgba(255,110,199,0.35)]">
           <div className="flex items-center justify-between gap-2">
             <p className="text-xs font-display text-pink-200 truncate max-w-[18rem]">♪ {current.title}</p>
@@ -116,13 +215,16 @@ export function PlayerProvider({ children }) {
           </div>
         </div>
       )}
-      {/* host must stay mounted so the shared YT.Player survives */}
+      {/* home position of the movable player wrapper (hidden while attached to a slide) */}
       <div
+        ref={homeRef}
         className={`fixed right-6 bottom-24 z-40 card p-2 shadow-[0_0_40px_rgba(255,110,199,0.35)] ${
-          current ? '' : 'hidden'
+          current && !attached ? '' : 'hidden'
         }`}
       >
-        <div ref={hostRef} />
+        <div ref={wrapRef} className={attached ? 'relative w-full h-full' : ''}>
+          <div ref={hostRef} />
+        </div>
       </div>
     </PlayerCtx.Provider>
   )
