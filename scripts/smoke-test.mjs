@@ -7,7 +7,10 @@ import puppeteer from 'puppeteer'
 
 const BASE = process.env.BASE_URL ?? 'http://localhost:4173'
 
-const browser = await puppeteer.launch({ headless: 'new' })
+const browser = await puppeteer.launch({
+  headless: 'new',
+  args: ['--no-sandbox', '--disable-setuid-sandbox'],
+})
 const page = await browser.newPage()
 await page.setViewport({ width: 1920, height: 1080 })
 
@@ -51,7 +54,7 @@ for (let i = 0; i < total + 2 && i < 200; i++) {
     const imgs = [...active.querySelectorAll('img')]
     return {
       type,
-      playButtons: active.querySelectorAll('button[aria-label^="play sample"]').length,
+      playButtons: active.querySelectorAll('button[aria-label^="play"], button[title*="Sample missing"]').length,
       pvLinks: active.querySelectorAll('a[href*="youtube.com"]').length,
       tracks: active.querySelectorAll('ol > li').length,
       broken: imgs.filter((im) => im.complete && im.naturalWidth === 0).map((im) => im.src),

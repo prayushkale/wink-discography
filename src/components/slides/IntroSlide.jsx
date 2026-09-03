@@ -41,7 +41,7 @@ export default function IntroSlide({ data }) {
 
       <div className="card px-6 py-4 mt-8 max-w-3xl text-center">
         <p className="text-sm text-slate-300 leading-relaxed">
-          Expressionless, doll-like performances · extravagant lolita fashion · the famous "robot dance" · Japanese covers
+          Expressionless, doll-like performances · extravagant doll-inspired fashion · the famous "robot dance" · Japanese covers
           of European pop, later ~60% originals · <span className="chip chip-gold mx-1">31st Japan Record Award Grand Prix</span>
           <span className="text-slate-400">for 淋しい熱帯魚 (1989)</span>
         </p>
