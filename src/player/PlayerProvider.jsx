@@ -122,11 +122,9 @@ export function PlayerProvider({ children }) {
     if (!item?.videoId) return
     setCurrent(item.title ? item : { ...item, title: item.titleEn ?? item.titleJp ?? 'Unknown track' })
     setPlaying(true)
-    // Tracks with an estimated chorus start begin at a random point inside
-    // the chorus window (estimate + 0–10s jitter) so every click lands a
-    // little differently while still reliably inside/near the first chorus.
-    const jitter = item.chorusStart ? Math.floor(Math.random() * 10) : 0
-    const startSeconds = item.chorusStart ? item.chorusStart + jitter : null
+    // Start every video exactly at its estimated chorus time (no jitter) so
+    // playback is deterministic and always lands on the first chorus.
+    const startSeconds = item.chorusStart ?? null
     try {
       playerRef.current?.loadVideoById(
         startSeconds ? { videoId: item.videoId, startSeconds } : item.videoId,

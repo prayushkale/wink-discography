@@ -84,7 +84,7 @@ const ChorusSamplePlayer = forwardRef(function ChorusSamplePlayer(
         vars.autoplay = 1
         vars.start = autoRef.current.startSeconds
       }
-      ytPlayer = new YT.Player(hostRef.current, {
+      playerRef.current = new YT.Player(hostRef.current, {
         width: '100%',
         height: '100%',
         videoId: autoRef.current?.videoId ?? pendingRef.current?.videoId,
