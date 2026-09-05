@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { PlayButton, TrackDetails, riajChip } from '../TrackBits.jsx'
 import { usePlayer } from '../../player/PlayerProvider.jsx'
+import { setOverride } from '../../lib/overrides.js'
+import { extractVideoId } from '../../player/yt.js'
 import ChorusSamplePlayer from '../ChorusSamplePlayer.jsx'
 
 const pad2 = (n) => String(n).padStart(2, '0')
@@ -63,9 +65,34 @@ export default function SingleSlide({ single, tracks, chorus }) {
   // play/stop button that routes to the showcase player when the slide is in showcase mode
   const playBtn = (track, size) => {
     const cfgKey = chorus?.tracks?.[track.key] ? track.key : null
+    const dims = size === 'lg' ? 'h-14 w-14 text-xl' : 'h-9 w-9 text-base'
+    // B-side (or any track) without a video: show the ⚠ add-link button, never a dead ▶
+    if (!cfgKey) {
+      return (
+        <button
+          onClick={(e) => {
+            e.stopPropagation()
+            const url = prompt(
+              `No YouTube link found for "${track.titleEn}".\nSearch YouTube for the song, paste the link here:`,
+            )
+            if (url) {
+              if (extractVideoId(url)) {
+                setOverride(track.key, url)
+                location.reload()
+              } else {
+                alert('That does not look like a YouTube link.')
+              }
+            }
+          }}
+          className={`shrink-0 flex items-center justify-center rounded-full border border-dashed border-slate-400/60 text-slate-300 hover:border-pink-300 hover:text-pink-200 transition-all ${dims}`}
+          title="Sample missing — click to paste a YouTube link"
+        >
+          ⚠
+        </button>
+      )
+    }
     const isCur = showcase.key === track.key
     const isPlaying = isCur && showcase.playing
-    const dims = size === 'lg' ? 'h-14 w-14 text-xl' : 'h-9 w-9 text-base'
     return (
       <button
         onClick={(e) => {

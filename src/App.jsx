@@ -275,15 +275,23 @@ function buildSlides(data) {
     if (item.kind === 'single') {
       const s = item.single
       const key = `single-${pad2(s.num)}`
-      const tracks = s.tracks.map((t, ti) => ({
-        ...t,
-        key: `${key}-${t.role || ti}`,
-        videoId: resolve(key, t.video),
-        originalVideoId: t.originalVideo ? extractVideoId(t.originalVideo) : null,
-        originalStartSeconds: t.originalVideo
-          ? (ORIGINAL_STARTS[`${key}-${t.role || ti}`] ?? CHORUS_STARTS[key] ?? DEFAULT_CHORUS_START)
-          : null,
-      }))
+      const tracks = s.tracks.map((t, ti) => {
+        const trackKey = `${key}-${t.role || ti}`
+        // single-level override (e.g. "single-23") applies ONLY to the A-side;
+        // B-sides resolve their own track key then the raw video field. This
+        // stops a single's override from leaking into the B-side card.
+        const overrideUrl = overrides[trackKey] ?? (ti === 0 ? overrides[key] : undefined)
+        const url = overrideUrl ?? t.video ?? null
+        return {
+          ...t,
+          key: trackKey,
+          videoId: url ? extractVideoId(url) : null,
+          originalVideoId: t.originalVideo ? extractVideoId(t.originalVideo) : null,
+          originalStartSeconds: t.originalVideo
+            ? (ORIGINAL_STARTS[`${key}-${t.role || ti}`] ?? CHORUS_STARTS[key] ?? DEFAULT_CHORUS_START)
+            : null,
+        }
+      })
       slides.push({
         type: 'single',
         item,
@@ -325,6 +333,11 @@ function buildSlides(data) {
 /** Bottom media-player-style control bar for the deck + now playing. */
 function ControlBar({ deck }) {
   const player = usePlayer()
+  // stop any playing song when the deck moves to a different slide
+  useEffect(() => {
+    player.stop()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [deck.index])
   return (
     <div className="absolute bottom-0 left-0 right-0 z-30 border-t border-white/10 bg-[#0a0e2aee] backdrop-blur-md">
       {/* progress */}
