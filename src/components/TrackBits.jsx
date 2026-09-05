@@ -2,6 +2,8 @@ import { usePlayer } from '../player/PlayerProvider.jsx'
 import { setOverride } from '../lib/overrides.js'
 import { extractVideoId } from '../player/yt.js'
 
+const fmt = (s) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`
+
 /** Round play/stop button for one track. Disabled with a "add link" prompt when no video. */
 export function PlayButton({ track, queue, size = 'md' }) {
   const player = usePlayer()
@@ -52,14 +54,28 @@ export function PlayButton({ track, queue, size = 'md' }) {
 }
 
 /** All the rich metadata we have about one recording. */
-export function TrackDetails({ track, dense = false }) {
+export function TrackDetails({ track, dense = false, onPlayOriginal = null }) {
   const clean = (s) => (s || '').replace(/—\s*$/, '')
+  const canPlayOriginal = Boolean(onPlayOriginal && track.originalVideoId)
   return (
     <div className={`space-y-${dense ? '1' : '1.5'} ${dense ? 'text-xs' : 'text-sm'} text-slate-300`}>
       <p>
         <span className="text-pink-300/80 font-display tracking-widest text-[0.7em] mr-2">ORIGINAL</span>
         {clean(track.original) || '—'}
-        {track.originalVideo && (
+        {canPlayOriginal && (
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation()
+              onPlayOriginal(track)
+            }}
+            className="ml-2 text-teal-300 hover:text-teal-200 underline decoration-dotted"
+            title={`Play the original in the side player (from ${fmt(track.originalStartSeconds)})`}
+          >
+            ▶ hear the original
+          </button>
+        )}
+        {track.originalVideo && !canPlayOriginal && (
           <a
             href={track.originalVideo}
             target="_blank"

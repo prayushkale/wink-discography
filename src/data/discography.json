@@ -31,6 +31,7 @@
       "num": 1,
       "titleEn": "Sugar Baby Love",
       "titleJp": "",
+      "coverImage": "/covers/single-01-sugar-baby-love.jpg",
       "releaseDate": "1988-04-27",
       "peak": "#20",
       "sales": "61,000",
@@ -61,7 +62,7 @@
           "credits": "作詞 (Lyrics): Joe Lemon (森雪之丞) | 作曲 (Music): 見岳章 | 編曲 (Arrangement): 鷺巣詩郎",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/ppdKtjlhx8U",
           "originalVideo": null,
           "notes": "Insert song for 熱っぽいの! (used as an instrumental version in the drama).",
           "soloMember": null
@@ -103,7 +104,7 @@
           "credits": "作詞 (Lyrics): 森雪之丞 | 作曲 (Music): 木戸やすひろ | 編曲 (Arrangement): 若草恵",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/15jW2oRoLNY",
           "originalVideo": null,
           "notes": "Originally announced as the 2nd single A-side before アマリリス was chosen.",
           "soloMember": null
@@ -145,7 +146,7 @@
           "credits": "作詞 (Lyrics): Lasse Andersson & Bruno Glenmark (original), 及川眠子 (日本語詞) | 作曲 (Music): Lasse Andersson & Bruno Glenmark | 編曲 (Arrangement): 船山基紀",
           "original": "I en ding ding värld — Annica Burman (1988, Sweden)",
           "chart": "",
-          "video": "https://www.youtube.com/watch?v=rMZK1-epRbo",
+          "video": "https://youtu.be/HzhD-kHrf1M",
           "originalVideo": "https://www.youtube.com/watch?v=rMZK1-epRbo",
           "notes": "Cover of Annica Burman's Melodifestivalen 1988 entry.",
           "soloMember": null
@@ -229,7 +230,7 @@
           "credits": "作詞 (Lyrics): Hedy West (original), 及川眠子 (日本語詞) | 作曲 (Music): Hedy West | 編曲 (Arrangement): 船山基紀",
           "original": "500 Miles — Hedy West (1961, USA)",
           "chart": "",
-          "video": "https://m.youtube.com/watch?v=rwnNdqpCF8Q",
+          "video": "https://youtu.be/u_1P32bQkoY",
           "originalVideo": "https://m.youtube.com/watch?v=rwnNdqpCF8Q",
           "notes": "Cover of Hedy West's folk standard \"500 Miles\".",
           "soloMember": null
@@ -313,7 +314,7 @@
           "credits": "作詞 (Lyrics): 及川眠子 | 作曲 (Music): 鈴木キサブロー | 編曲 (Arrangement): 船山基紀",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/7dTZgw4j4KI",
           "originalVideo": null,
           "notes": "Wink original B-side.",
           "soloMember": null
@@ -355,7 +356,7 @@
           "credits": "作詞 (Lyrics): Roxanne Seeman, Dominic Messinger & Billie Hughes (original), 及川眠子 (日本語詞) | 作曲 (Music): Roxanne Seeman, Dominic Messinger & Billie Hughes | 編曲 (Arrangement): 門倉聡",
           "original": "Welcome to the Edge — Billie Hughes (—, USA)",
           "chart": "",
-          "video": "https://www.youtube.com/watch?v=BbC7_-myWoM",
+          "video": "https://youtu.be/SRnKXSdLWEE",
           "originalVideo": "https://www.youtube.com/watch?v=BbC7_-myWoM",
           "notes": "Cover of the \"Santa Barbara\" soap-opera love theme; Billie Hughes later self-covered it as とどかぬ想い〜Welcome to the Edge〜 (1991).",
           "soloMember": null
@@ -397,7 +398,7 @@
           "credits": "作詞 (Lyrics): Rod Gammons, Angie Rubin & Shelly Speck (original), 及川眠子 (日本語詞) | 作曲 (Music): Rod Gammons, Angie Rubin & Shelly Speck | 編曲 (Arrangement): 門倉聡",
           "original": "Let an Angel — Tricia Leigh Fisher (1990, USA)",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/Qeg7tPrmD-k",
           "originalVideo": null,
           "notes": "Cover of Tricia Leigh Fisher's album track \"Let an Angel\".",
           "soloMember": null
@@ -439,7 +440,7 @@
           "credits": "作詞 (Lyrics): 及川眠子 (Neko Oikawa) | 作曲 (Music): 尾関昌也 (Masaya Ozeki) | 編曲 (Arrangement): 門倉聡 (Satoshi Kadokura)",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://www.youtube.com/watch?v=e97yKWe08us",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -523,7 +524,7 @@
           "credits": "作詞・作曲 (Lyrics/Music, original): ビリー・ヒューズ (Billy Hughes), ログザンヌ・シーマン (Roxanne Seeman) | 日本語詞 (Japanese lyrics): 及川眠子 (Neko Oikawa) | 編曲 (Arrangement): 門倉聡 (Satoshi Kadokura)",
           "original": "My World — Zoé Heywood (1987, UK)",
           "chart": "",
-          "video": "https://m.youtube.com/watch?v=5MAmP6_dtDU",
+          "video": "https://youtu.be/xF5r0VRB0Hc",
           "originalVideo": "https://m.youtube.com/watch?v=5MAmP6_dtDU",
           "notes": "Cover of British singer Zoé Heywood's \"My World\" (from her 1987 Japan-made album *Zoé*); new Japanese lyrics by Neko Oikawa.",
           "soloMember": null
@@ -535,6 +536,7 @@
       "num": 13,
       "titleEn": "Tsuioku no Heroine / Image na Kankei",
       "titleJp": "追憶のヒロイン／イマージュな関係",
+      "coverImage": "/covers/single-13-tsuioku-no-heroine.jpg",
       "releaseDate": "1991-12-16",
       "peak": "#5",
       "sales": "136,000",
@@ -565,7 +567,7 @@
           "credits": "作詞 (Lyrics): 及川眠子 (Neko Oikawa) | 作曲 (Music): 松本俊明 (Toshiaki Matsumoto) | 編曲 (Arrangement): 門倉聡 (Satoshi Kadokura)",
           "original": "",
           "chart": "",
-          "video": "https://www.youtube.com/watch?v=DA8tar1tgis",
+          "video": "https://www.youtube.com/watch?v=5bJlKQORx84",
           "originalVideo": null,
           "notes": "Opening theme of NTV anime *Watashi to Watashi: Futari no Lotte*; issued as a \"temporary single\" and later recognized as a regular single.",
           "soloMember": null
@@ -607,7 +609,7 @@
           "credits": "作詞 (Lyrics): 及川眠子 (Neko Oikawa) | 作曲 (Music): 工藤崇 (Takashi Kudō) | 編曲 (Arrangement): 門倉聡 (Satoshi Kadokura)",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://www.youtube.com/watch?v=ERyAD1KlnC8",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -649,7 +651,7 @@
           "credits": "作詞・作曲 (Lyrics/Music, original): セトロジー・アレッサンドロ / デグリノサンティー / マルコ・マッシーニ (Marco Masini) | 日本語詞 (Japanese lyrics): 及川眠子 (Neko Oikawa) | 編曲 (Arrangement): 船山基紀 (Motoki Funayama)",
           "original": "Little Russian — Mr. Zivago (1987, Italy)",
           "chart": "",
-          "video": "https://www.youtube.com/watch?v=SNHQW5P3l4A",
+          "video": "https://youtu.be/LovQhOaYzcM",
           "originalVideo": "https://www.youtube.com/watch?v=SNHQW5P3l4A",
           "notes": "Cover of Italian singer Mr. Zivago's 1987 Italo-disco single \"Little Russian\"; JA credits the song to the transliterated Italian writers above (last = Marco Masini).",
           "soloMember": null
@@ -691,7 +693,7 @@
           "credits": "作詞・作曲 (Lyrics/Music, original): Simon Climie, Holly Knight | 日本語詞 (Japanese lyrics): 及川眠子 (Neko Oikawa) | 編曲 (Arrangement): 杉山卓夫 (Takuo Sugiyama)",
           "original": "Invincible — Pat Benatar (1985, USA)",
           "chart": "",
-          "video": "https://www.youtube.com/watch?v=5A4xBp2rizQ",
+          "video": "https://youtu.be/7Hvs2Z_Kz3o",
           "originalVideo": "https://www.youtube.com/watch?v=5A4xBp2rizQ",
           "notes": "Cover of Pat Benatar's 1985 hit \"Invincible\" (theme of the film *The Legend of Billie Jean*); new Japanese lyrics by Neko Oikawa.",
           "soloMember": null
@@ -775,7 +777,7 @@
           "credits": "作詞 (Lyrics): 及川眠子 | 作曲 (Music): 鈴木智文 | 編曲 (Arrangement): 恵比寿司",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/fKOwAoXDQpk",
           "originalVideo": null,
           "notes": "CM song for T&E SOFT Super Famicom game \"Sword World SFC\".",
           "soloMember": null
@@ -859,7 +861,7 @@
           "credits": "作詞 (Lyrics): 吉元由美 | 作曲 (Music): 井上大輔 | 編曲 (Arrangement): 門倉聡",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/Deqz2M6Q1sg",
           "originalVideo": null,
           "notes": "NTT Kyushu CM image song.",
           "soloMember": null
@@ -985,7 +987,7 @@
           "credits": "作詞 (Lyrics): 芹沢類 | 作曲 (Music): Osny Melo | 編曲 (Arrangement): 門倉聡",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/m7Fn_jyXSvw",
           "originalVideo": null,
           "notes": "—",
           "soloMember": null
@@ -1027,7 +1029,7 @@
           "credits": "作詞 (Lyrics): 朝水彼方 | ラップ詞 (Rap Lyrics): CRAZY-A | 作曲 (Music): 中野雅仁 | 編曲 (Arrangement): GEWDA (MASA and Hit'C)",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/3b6n1p9L2Mc",
           "originalVideo": null,
           "notes": "Features rap by CRAZY-A.",
           "soloMember": null
@@ -1183,7 +1185,7 @@
           "credits": "作詞 (Lyrics): Joe Lemon (pen name of 森雪之丞) | 作曲 (Music): 見岳章 | 編曲 (Arrangement): 鷺巣詩郎",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://www.youtube.com/watch?v=ppdKtjlhx8U&pp=ygUTS2F6ZSBubyBaZW5zxY1reW9rdQ%3D%3D",
           "originalVideo": null,
           "notes": "B-side of debut single \"Sugar Baby Love\".",
           "soloMember": null
@@ -1225,7 +1227,7 @@
           "credits": "作詞 (Lyrics): 竜真知子 | 作曲 (Music): 見岳章 | 編曲 (Arrangement): 大谷和夫",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/tskZAT7sb0g",
           "originalVideo": null,
           "notes": "—",
           "soloMember": "Suzuki Sachiko"
@@ -1239,7 +1241,7 @@
           "credits": "作詞 (Lyrics): Paul Anka (日本語詞: 高柳恋) | 作曲 (Music): Paul Anka | 編曲 (Arrangement): 鷺巣詩郎",
           "original": "Put Your Head on My Shoulder — Paul Anka (1959, United States/Canada)",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/b2LJUojPmmM",
           "originalVideo": null,
           "notes": "Japanese-language cover.",
           "soloMember": null
@@ -1405,7 +1407,7 @@
           "credits": "作詞 (Lyrics): H.Knight, B.Steinberg (日本語詞: 及川眠子) | 作曲 (Music): H.Knight, B.Steinberg | 編曲 (Arrangement): 杉山卓夫",
           "original": "Baby Me — Chaka Khan (1988, United States)",
           "chart": "",
-          "video": "https://www.youtube.com/watch?v=QwLRWRUAuhw",
+          "video": "https://youtu.be/idL-JMySkbo",
           "originalVideo": null,
           "notes": "Japanese-language cover.",
           "soloMember": "Aida Shoko"
@@ -1461,7 +1463,7 @@
           "credits": "作詞 (Lyrics): M.Barkan, H.Hunter (日本語詞: 森本抄夜子) | 作曲 (Music): M.Barkan, H.Hunter | 編曲 (Arrangement): 若草恵",
           "original": "I'm Gonna Be Warm This Winter — Connie Francis (1962, United States)",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/u-Uw1GhkIZY",
           "originalVideo": null,
           "notes": "Japanese-language cover.",
           "soloMember": null
@@ -1489,7 +1491,7 @@
           "credits": "作詞 (Lyrics): D.Harry, S.Justman (日本語詞: 森本抄夜子) | 作曲 (Music): D.Harry, S.Justman | 編曲 (Arrangement): 杉山卓夫",
           "original": "You Got Me in Trouble — Debbie Harry (1986, United States)",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/-7ukXwvEkcI",
           "originalVideo": null,
           "notes": "Japanese-language cover.",
           "soloMember": "Aida Shoko"
@@ -1503,7 +1505,7 @@
           "credits": "作詞 (Lyrics): Ben Findon, Michael Myers (日本語詞: 森雪之丞) | 作曲 (Music): Ben Findon, Michael Myers | 編曲 (Arrangement): 若草恵",
           "original": "Let's Make Love — The Nolans (1979, United Kingdom/Ireland)",
           "chart": "",
-          "video": "https://www.youtube.com/watch?v=qEAD15QYzgo",
+          "video": "https://youtu.be/YWGvXnhJPHM",
           "originalVideo": null,
           "notes": "Japanese-language cover.",
           "soloMember": "Suzuki Sachiko"
@@ -1600,7 +1602,7 @@
           "credits": "作詞 (Lyrics): KEIKO (pen name of 相田翔子) | 作曲 (Music): 羽場仁志 | 編曲 (Arrangement): 船山基紀",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/bvTvLUQKsM4",
           "originalVideo": null,
           "notes": "—",
           "soloMember": "Aida Shoko"
@@ -1767,7 +1769,7 @@
           "credits": "作詞 (Lyrics): 及川眠子 | 作曲 (Music): 尾関昌也 | 編曲 (Arrangement): 門倉聡",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/cdYWwqPljdY",
           "originalVideo": null,
           "notes": "—",
           "soloMember": null
@@ -1795,7 +1797,7 @@
           "credits": "作詞 (Lyrics): Ronald Bell, James Taylor, Kool & the Gang (日本語詞: 及川眠子) | 作曲 (Music): Ronald Bell, James Taylor, Kool & the Gang | 編曲 (Arrangement): 門倉聡",
           "original": "Cherish — Kool & the Gang (1985, United States)",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/Za0l2xiMm8s",
           "originalVideo": null,
           "notes": "Japanese-language cover.",
           "soloMember": "Suzuki Sachiko"
@@ -1823,7 +1825,7 @@
           "credits": "作詞 (Lyrics): 森本抄夜子 | 作曲 (Music): 中西圭三, 小西貴雄 | 編曲 (Arrangement): 船山基紀",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/PGtGMXn7rQk",
           "originalVideo": null,
           "notes": "—",
           "soloMember": "Suzuki Sachiko"
@@ -1837,7 +1839,7 @@
           "credits": "作詞 (Lyrics): 及川眠子 | 作曲 (Music): 尾関昌也 | 編曲 (Arrangement): 門倉聡",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/v4tztxqlF7k",
           "originalVideo": null,
           "notes": "—",
           "soloMember": null
@@ -1892,7 +1894,7 @@
           "credits": "作詞 (Lyrics): 及川眠子 | 作曲 (Music): 尾関昌也 | 編曲 (Arrangement): 門倉聡",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/rHul1LdInwM",
           "originalVideo": null,
           "notes": "—",
           "soloMember": null
@@ -1920,7 +1922,7 @@
           "credits": "作詞 (Lyrics): Bunny Hull, Harold Payne (日本語詞: 森本抄夜子) | 作曲 (Music): Bunny Hull, Harold Payne | 編曲 (Arrangement): 門倉聡",
           "original": "We'll Be Together Someday — Harold Payne (—, United States)",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/BiPH4_mbjRM",
           "originalVideo": null,
           "notes": "Japanese-language cover; later self-covered by Harold Payne as \"We'll Be Together Someday\".",
           "soloMember": "Aida Shoko"
@@ -2059,7 +2061,7 @@
           "credits": "作詞 (Lyrics): 竜真知子 | 作曲 (Music): 来生たかお | 編曲 (Arrangement): 門倉聡",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/4J2x5fRDqOs",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -2101,7 +2103,7 @@
           "credits": "作詞 (Lyrics): 芹沢類 | 作曲 (Music): 尾関昌也 | 編曲 (Arrangement): 門倉聡",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/LA-x0iuySq4",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -2129,7 +2131,7 @@
           "credits": "作詞 (Lyrics): Billie Hughes, Roxanne Seeman (日本語詞: 森本抄夜子) | 作曲 (Music): Billie Hughes, Roxanne Seeman | 編曲 (Arrangement): 門倉聡",
           "original": "Night and Day — Bette Midler (1991, USA)",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/s5qXjS36Qz0",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -2240,7 +2242,7 @@
           "credits": "作詞 (Lyrics): 森本抄夜子 | 作曲 (Music): 広谷順子 | 編曲 (Arrangement): 門倉聡",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/ipldPGdQAGA",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -2268,7 +2270,7 @@
           "credits": "作詞 (Lyrics): Miyoko.A (鈴木早智子) | 作曲 (Music): 尾関昌也 | 編曲 (Arrangement): 門倉聡",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/dY58_ZqLH4U",
           "originalVideo": null,
           "notes": "First lyrics by Sachiko Suzuki under the pen name \"Miyoko.A\".",
           "soloMember": null
@@ -2296,7 +2298,7 @@
           "credits": "作詞 (Lyrics): Billie Hughes・Roxanne Seeman (日本語詞: 及川眠子) | 作曲 (Music): Billie Hughes・Roxanne Seeman | 編曲 (Arrangement): 門倉聡",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/xF5r0VRB0Hc",
           "originalVideo": null,
           "notes": "B-side of preceding single 背徳のシナリオ; later self-covered by Billie Hughes as \"My World\".",
           "soloMember": null
@@ -2393,7 +2395,7 @@
           "credits": "作詞 (Lyrics): 芹沢類 | 作曲 (Music): 広谷順子 | 編曲 (Arrangement): 門倉聡",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://www.youtube.com/watch?v=20Xbyjm6hTY&pp=ygUL55m95aScIHdpbms%3D",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -2421,7 +2423,7 @@
           "credits": "作詞 (Lyrics): James C.Brown・John A.Butler (日本語詞: 及川眠子) | 作曲 (Music): James C.Brown・John A.Butler | 編曲 (Arrangement): 門倉聡",
           "original": "Burning Through the Night — Roxanne (—, —)",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/QWDERP3BWCk",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -2449,7 +2451,7 @@
           "credits": "作詞 (Lyrics): 及川眠子 | 作曲 (Music): KE-Y (横山輝一) | 編曲 (Arrangement): 十川知司",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/BTSs7OsjFBU",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -2477,7 +2479,7 @@
           "credits": "作詞 (Lyrics): 芹沢類 | 作曲 (Music): 松本俊明 | 編曲 (Arrangement): 十川知司",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/y5LCo-I_FCo",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -2560,7 +2562,7 @@
           "credits": "作詞 (Lyrics): 芹沢類 | 作曲 (Music): 工藤崇 | 編曲 (Arrangement): 門倉聡",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/Z8Y9hDpOxVk",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -2616,7 +2618,7 @@
           "credits": "作詞 (Lyrics): Simon Climie・Holly Knight (日本語詞: 及川眠子) | 作曲 (Music): Simon Climie・Holly Knight | 編曲 (Arrangement): 杉山卓夫",
           "original": "Invincible — Pat Benatar (1985, USA)",
           "chart": "",
-          "video": "https://www.youtube.com/watch?v=IAN45qO3S0w",
+          "video": "https://youtu.be/7Hvs2Z_Kz3o",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -2630,7 +2632,7 @@
           "credits": "作詞 (Lyrics): Setolosi Alessandro・Degl'innocenti・Marco Masini (日本語詞: 及川眠子) | 作曲 (Music): Setolosi Alessandro・Degl'innocenti・Marco Masini | 編曲 (Arrangement): 船山基紀",
           "original": "Little Russian — Mr. Zivago (—, —)",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/LovQhOaYzcM",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -2658,7 +2660,7 @@
           "credits": "作詞 (Lyrics): 堀下健 | 作曲 (Music): 堀下健 | 編曲 (Arrangement): 門倉聡",
           "original": "時計をとめて — The Jacks (—, Japan)",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/s6Nu24AxiaI",
           "originalVideo": null,
           "notes": "Cover of The Jacks' B-side (of マリアンヌ); originally recorded for the 1991 Fujipacific Music 25th-anniversary non-sale CD.",
           "soloMember": null
@@ -2699,7 +2701,7 @@
           "credits": "作詞 (Lyrics): 芹沢類 | 作曲 (Music): 石川Kanji (石川寛門) | 編曲 (Arrangement): 白井良明",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/HE8b9gNQLEI",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -2741,7 +2743,7 @@
           "credits": "作詞 (Lyrics): 康珍化 | 作曲 (Music): Osny Melo | 編曲 (Arrangement): Osny Melo",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/7AMe9ed7sTs",
           "originalVideo": null,
           "notes": "Competed with 結婚しようね for single release.",
           "soloMember": null
@@ -2755,7 +2757,7 @@
           "credits": "作詞 (Lyrics): 宝野アリカ | 作曲 (Music): かしぶち哲郎 | 編曲 (Arrangement): かしぶち哲郎",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/nAVg9HPpGLY",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -2783,7 +2785,7 @@
           "credits": "作詞 (Lyrics): 及川眠子 | 作曲 (Music): 鈴木智文 | 編曲 (Arrangement): 恵比寿司",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/fKOwAoXDQpk",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -2811,7 +2813,7 @@
           "credits": "作詞 (Lyrics): 相田翔子 | 作曲 (Music): 相田翔子 | 編曲 (Arrangement): 門倉聡",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/QMbIiy-aIFI",
           "originalVideo": null,
           "notes": "Shoko Aida's first self-composition credited under her own name (previously \"KEIKO\").",
           "soloMember": null
@@ -2880,7 +2882,7 @@
           "credits": "作詞 (Lyrics): Patrick DeRemer・Jeff Pescetto (日本語詞: 吉元由美 / Yumi Yoshimoto) | 作曲 (Music): Patrick DeRemer・Jeff Pescetto | 編曲 (Arrangement): Ian Prince",
           "original": "\"You've Gone Too Far\" — — (—, —)",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/4Hih5NcMKfE",
           "originalVideo": null,
           "notes": "Japanese-language version of \"You've Gone Too Far\" (writers Patrick DeRemer & Jeff Pescetto); original artist not documented.",
           "soloMember": null
@@ -2894,7 +2896,7 @@
           "credits": "作詞 (Lyrics): 芹沢類 (Rui Serizawa) | 作曲 (Music): Osny Melo | 編曲 (Arrangement): Ian Prince",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/FKVnJ5QzBwY",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -2908,7 +2910,7 @@
           "credits": "作詞 (Lyrics): Mick Jones (日本語詞: 戸沢暢美 / Masami Tozawa) | 作曲 (Music): Mick Jones | 編曲 (Arrangement): 小林信吾 (Shingo Kobayashi)",
           "original": "\"I Want to Know What Love Is\" — Foreigner (1984, United Kingdom / United States)",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/40V_yJgxDws",
           "originalVideo": null,
           "notes": "Aida Shoko solo cover of Foreigner's power ballad.",
           "soloMember": null
@@ -2922,7 +2924,7 @@
           "credits": "作詞 (Lyrics): 戸沢暢美 (Masami Tozawa) | 作曲 (Music): 横山輝一 (Kiichi Yokoyama) | 編曲 (Arrangement): Ian Prince",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/NDb7eiC-nA",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -2950,7 +2952,7 @@
           "credits": "作詞 (Lyrics): 鈴木早智子 (Sachiko Suzuki) | 作曲 (Music): 来生たかお (Takao Kisugi) | 編曲 (Arrangement): 小林信吾 (Shingo Kobayashi)",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/cqoY8GuLyYc",
           "originalVideo": null,
           "notes": "First song credited to Suzuki under her real name rather than the \"Miyoko.A\" pen name.",
           "soloMember": null
@@ -2964,7 +2966,7 @@
           "credits": "作詞 (Lyrics): 相田翔子 (Shoko Aida) | 作曲 (Music): 相田翔子 (Shoko Aida) | 編曲 (Arrangement): 小林信吾 (Shingo Kobayashi)",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/tKN_ouvXoKg",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -2978,7 +2980,7 @@
           "credits": "作詞 (Lyrics): 朝水彼方 (Kanata Asamizu) | 作曲 (Music): 中野多佳子 (Takako Nakano) | 編曲 (Arrangement): 恵比寿司 (Tsukasa Ebisu)",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/SitUnseFDgU",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -3019,7 +3021,7 @@
           "credits": "作詞 (Lyrics): 芹沢類 (Rui Serizawa) | 作曲 (Music): 門倉有希 (Yuki Kadokura) | 編曲 (Arrangement): Brett Raymond",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/WmiOqcGV_mk",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -3075,7 +3077,7 @@
           "credits": "作詞 (Lyrics): 秋元康 (Yasushi Akimoto) | 作曲 (Music): 財津和夫 (Kazuo Zaitsu) | 編曲 (Arrangement): Brett Raymond",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/9EikALMpZLs",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -3089,7 +3091,7 @@
           "credits": "作詞 (Lyrics): 相田翔子 (Shoko Aida) | 作曲 (Music): 相田翔子 (Shoko Aida) | 編曲 (Arrangement): 門倉有希 (Yuki Kadokura)",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/lymJL7V12Z8",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -3200,7 +3202,7 @@
           "credits": "作詞 (Lyrics): 秋元康 (Yasushi Akimoto) | 作曲 (Music): 財津和夫 (Kazuo Zaitsu) | 編曲 (Arrangement): 門倉聡 (Satoshi Kadokura)",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/9xqn9p6zloc",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -3214,7 +3216,7 @@
           "credits": "作詞 (Lyrics): 岩里祐穂 (Yūho Iwasato) | 作曲 (Music): 上田知華 (Chika Ueda) | 編曲 (Arrangement): 門倉聡 (Satoshi Kadokura)",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/-3Uz6kMD5qw",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -3256,7 +3258,7 @@
           "credits": "作詞 (Lyrics): 相田翔子 (Shoko Aida) | 作曲 (Music): 相田翔子 (Shoko Aida) | 編曲 (Arrangement): 門倉聡 (Satoshi Kadokura)",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/0ZKkXddGMv4",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -3270,7 +3272,7 @@
           "credits": "作詞 (Lyrics): Miyoko.A (鈴木早智子 / Sachiko Suzuki) | 作曲 (Music): 尾関昌也 (Masaya Ozeki) | 編曲 (Arrangement): 門倉聡 (Satoshi Kadokura)",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/Fco-nxkNNi0",
           "originalVideo": null,
           "notes": "Suzuki returns to the \"Miyoko.A\" pen name on this album.",
           "soloMember": null
@@ -3284,7 +3286,7 @@
           "credits": "作詞 (Lyrics): 遠藤京子 (Kyōko Endō) | 作曲 (Music): 遠藤京子 (Kyōko Endō) | 編曲 (Arrangement): 門倉聡 (Satoshi Kadokura)",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/YC5Rl_6m3kg",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -3311,7 +3313,7 @@
           "credits": "作詞 (Lyrics): Chuck Wild (日本語詞: 芹沢類 / Rui Serizawa) | 作曲 (Music): Chuck Wild | 編曲 (Arrangement): 門倉聡 (Satoshi Kadokura)",
           "original": "\"One Kiss at a Time\" — Chuck Wild (—, —) —",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/7iNgS4b2tCQ",
           "originalVideo": null,
           "notes": "Japanese-language version of Chuck Wild's \"One Kiss at a Time\".",
           "soloMember": null
@@ -3325,7 +3327,7 @@
           "credits": "作詞 (Lyrics): 朝水彼方 (Kanata Asamizu) (ラップ詞: KING of HIPHOP \"CRAZY-A\") | 作曲 (Music): 中野雅仁 (Masahito Nakano) | 編曲 (Arrangement): GEWDA (MASAandHit'C)",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/3b6n1p9L2Mc",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -3381,7 +3383,7 @@
           "credits": "作詞 (Lyrics): 芹沢類 (Rui Serizawa) | 作曲 (Music): 尾関昌也 (Masaya Ozeki) | 編曲 (Arrangement): 田原音彦 (Otohiko Tahara)",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/kXgKpUbKGLo",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -3395,7 +3397,7 @@
           "credits": "作詞 (Lyrics): 相田翔子 (Shoko Aida) | 作曲 (Music): 相田翔子 (Shoko Aida) | 編曲 (Arrangement): 岩崎琢 (Taku Iwasaki)",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/OCPIL8J0-tU",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -3409,7 +3411,7 @@
           "credits": "作詞 (Lyrics): 及川眠子 (Neko Oikawa) | 作曲 (Music): 尾関昌也 (Masaya Ozeki) | 編曲 (Arrangement): 船山基紀 (Motoki Funayama)",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/ZCDg9ZFPjoc",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
@@ -3423,7 +3425,7 @@
           "credits": "作詞 (Lyrics): 芹沢類 (Rui Serizawa) | 作曲 (Music): Osny Melo | 編曲 (Arrangement): 門倉聡 (Satoshi Kadokura)",
           "original": "",
           "chart": "",
-          "video": null,
+          "video": "https://youtu.be/m7Fn_jyXSvw",
           "originalVideo": null,
           "notes": "",
           "soloMember": null
