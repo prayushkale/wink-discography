@@ -27,6 +27,10 @@ export function PlayerProvider({ children }) {
   const idxRef = useRef(-1)
   const pendingRef = useRef(null)
   const currentRef = useRef(null)
+  // the chorus start last requested for the current item. If the player is
+  // respawned (attachHost/detachHost) before playback has actually reached
+  // that point, spawn must re-apply it instead of resuming from ~0.
+  const startTargetRef = useRef(null)
   const playingRef = useRef(false)
   const ytReadyRef = useRef(false)
 
@@ -41,6 +45,11 @@ export function PlayerProvider({ children }) {
     const prev = playerRef.current
     const resumeId = currentRef.current?.videoId
     const resumePlaying = playingRef.current
+    // if we were asked to start at a chorus point and the player hasn't yet
+    // played into it (e.g. it just got loadVideoById'd and is being reparented
+    // immediately), re-apply the chorus start rather than resuming from ~0.
+    const target = startTargetRef.current
+    const effStart = target != null && startSeconds < target ? target : startSeconds
     if (prev) {
       try {
         prev.destroy()
@@ -69,7 +78,7 @@ export function PlayerProvider({ children }) {
           modestbranding: 1,
           playsinline: 1,
           origin: window.location.origin,
-          ...(startSeconds ? { start: Math.floor(startSeconds) } : {}),
+          ...(effStart ? { start: Math.floor(effStart) } : {}),
         },
         events: {
           onReady: (e) => {
@@ -79,7 +88,10 @@ export function PlayerProvider({ children }) {
               const item = pendingRef.current
               pendingRef.current = null
               if (item?.videoId) {
-                e.target.loadVideoById(item.videoId)
+                if (item.chorusStart) startTargetRef.current = item.chorusStart
+                e.target.loadVideoById(
+                  item.chorusStart ? { videoId: item.videoId, startSeconds: item.chorusStart } : item.videoId,
+                )
                 e.target.playVideo()
               }
             }
@@ -107,6 +119,7 @@ export function PlayerProvider({ children }) {
     queueRef.current = []
     idxRef.current = -1
     pendingRef.current = null
+    startTargetRef.current = null
     setCurrent(null)
     setPlaying(false)
   }, [])
@@ -125,6 +138,7 @@ export function PlayerProvider({ children }) {
     // Start every video exactly at its estimated chorus time (no jitter) so
     // playback is deterministic and always lands on the first chorus.
     const startSeconds = item.chorusStart ?? null
+    startTargetRef.current = startSeconds || null
     try {
       playerRef.current?.loadVideoById(
         startSeconds ? { videoId: item.videoId, startSeconds } : item.videoId,
