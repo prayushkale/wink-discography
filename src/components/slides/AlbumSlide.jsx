@@ -1,13 +1,32 @@
-import { useEffect, useMemo, useRef } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { PlayButton, TrackDetails, riajChip } from '../TrackBits.jsx'
 import { usePlayer } from '../../player/PlayerProvider.jsx'
+import { getSavedChorusStarts, setChorusStart as persistChorusStart } from '../../lib/chorusStarts.js'
+import ChorusStartEditor from '../ChorusStartEditor.jsx'
 
-export default function AlbumSlide({ entry, tracks, albumPrefix }) {
+export default function AlbumSlide({ entry, tracks, albumPrefix, editor }) {
   const { album, coverSlug } = entry
   const player = usePlayer()
   const videoSlotRef = useRef(null)
 
-  const playable = useMemo(() => tracks.filter((t) => t.videoId), [tracks])
+  // chorus-start tuner (VITE_CHORUS_EDIT=1): per-track overrides applied on
+  // top of the builtin ALBUM_CHORUS_STARTS estimates. Save persists + applies
+  // immediately, so the album queue and row play buttons use the tuned start.
+  const savedStarts = getSavedChorusStarts()
+  const [startOverrides, setStartOverrides] = useState({})
+  const saveStart = (trackKey, seconds) => {
+    if (persistChorusStart(trackKey, seconds)) {
+      setStartOverrides((prev) => ({ ...prev, [trackKey]: seconds }))
+    }
+  }
+  const effectiveTracks = useMemo(
+    () =>
+      tracks.map((t) =>
+        startOverrides[t.key] != null ? { ...t, chorusStart: startOverrides[t.key] } : t,
+      ),
+    [tracks, startOverrides],
+  )
+  const playable = useMemo(() => effectiveTracks.filter((t) => t.videoId), [effectiveTracks])
   const playingKey = player.current?.key
   const albumPlaying = Boolean(albumPrefix && playingKey?.startsWith(albumPrefix))
 
@@ -122,6 +141,13 @@ export default function AlbumSlide({ entry, tracks, albumPrefix }) {
                   </div>
                   <PlayButton track={t} queue={playable} size="sm" />
                 </div>
+                {editor && (
+                  <ChorusStartEditor
+                    track={t}
+                    start={startOverrides[t.key] ?? t.chorusStart}
+                    onSave={(s) => saveStart(t.key, s)}
+                  />
+                )}
                 {active && (
                   <div className="mt-3 pl-8 border-t border-white/10 pt-3">
                     <TrackDetails track={t} dense />

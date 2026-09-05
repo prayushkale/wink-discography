@@ -2,12 +2,14 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { PlayButton, TrackDetails, riajChip } from '../TrackBits.jsx'
 import { usePlayer } from '../../player/PlayerProvider.jsx'
 import { setOverride } from '../../lib/overrides.js'
+import { getSavedChorusStarts, setChorusStart as persistChorusStart } from '../../lib/chorusStarts.js'
 import { extractVideoId } from '../../player/yt.js'
 import ChorusSamplePlayer from '../ChorusSamplePlayer.jsx'
+import ChorusStartEditor from '../ChorusStartEditor.jsx'
 
 const pad2 = (n) => String(n).padStart(2, '0')
 
-export default function SingleSlide({ single, tracks, chorus }) {
+export default function SingleSlide({ single, tracks, chorus, editor }) {
   const aSide = tracks[0]
   const bSide = tracks[1]
   const player = usePlayer()
@@ -18,6 +20,28 @@ export default function SingleSlide({ single, tracks, chorus }) {
   const videoSlotRef = useRef(null)
   const singlePrefix = `single-${pad2(single.num)}`
   const slidePlaying = !chorus && Boolean(player.current?.key?.startsWith(`${singlePrefix}-`))
+
+  // chorus-start tuner (VITE_CHORUS_EDIT=1): per-track effective chorus start —
+  // a saved localStorage override (keyed single-{NN}-{role}), else the builtin
+  // estimate carried in the chorus config. Save persists + applies it without a
+  // reload, so each song card carries its own value.
+  const savedStarts = getSavedChorusStarts()
+  const [chorusStarts, setChorusStarts] = useState(() => {
+    const init = {}
+    for (const t of tracks) {
+      const cfg = chorus?.tracks?.[t.key]
+      init[t.key] = savedStarts[t.key] ?? cfg?.startSeconds ?? 38
+    }
+    return init
+  })
+  const saveChorusStart = useCallback(
+    (trackKey, seconds) => {
+      if (persistChorusStart(trackKey, seconds)) {
+        setChorusStarts((prev) => ({ ...prev, [trackKey]: seconds }))
+      }
+    },
+    [],
+  )
 
   const { attachHost, detachHost } = player
   useEffect(() => {
@@ -37,9 +61,13 @@ export default function SingleSlide({ single, tracks, chorus }) {
       // accepts a track key or an `original:<key>`-suffixed alias
       const cfg = chorus?.tracks?.[key] ?? chorus?.tracks?.[`original:${key}`]
       if (!cfg || !showcaseRef.current) return
-      showcaseRef.current.playTrack(cfg)
+      // the Wink PV plays from the (possibly user-tuned) chorus start;
+      // original-artist clips keep their own ORIGINAL_STARTS guess.
+      showcaseRef.current.playTrack(
+        isOriginal ? cfg : { ...cfg, startSeconds: chorusStarts[cfg.key] ?? cfg.startSeconds },
+      )
     },
-    [chorus],
+    [chorus, chorusStarts],
   )
   // 'hear the original' handler: track objects map to their `original:<key>`
   // chorus entry so the ORIGINAL-artist clip plays in the side player.
@@ -57,9 +85,9 @@ export default function SingleSlide({ single, tracks, chorus }) {
       const cfg = chorus?.tracks?.[key]
       if (!cfg || !showcaseRef.current) return
       if (showcase.key === key && showcase.playing) showcaseRef.current.pause()
-      else showcaseRef.current.playTrack(cfg)
+      else showcaseRef.current.playTrack({ ...cfg, startSeconds: chorusStarts[cfg.key] ?? cfg.startSeconds })
     },
-    [chorus, showcase],
+    [chorus, showcase, chorusStarts],
   )
 
   // play/stop button that routes to the showcase player when the slide is in showcase mode
@@ -162,6 +190,13 @@ export default function SingleSlide({ single, tracks, chorus }) {
             <div className="mt-4">
               <TrackDetails track={aSide} onPlayOriginal={chorus ? showcasePlayOriginal : null} />
             </div>
+            {chorus && editor && (
+              <ChorusStartEditor
+                track={aSide}
+                start={chorusStarts[aSide.key] ?? 38}
+                onSave={(s) => saveChorusStart(aSide.key, s)}
+              />
+            )}
           </div>
           {chorus ? playBtn(aSide, 'lg') : <PlayButton track={aSide} size="lg" />}
         </div>
@@ -182,6 +217,13 @@ export default function SingleSlide({ single, tracks, chorus }) {
                   <TrackDetails track={bSide} dense onPlayOriginal={chorus ? showcasePlayOriginal : null} />
                 </div>
               )}
+              {chorus && editor && (
+                <ChorusStartEditor
+                  track={bSide}
+                  start={chorusStarts[bSide.key] ?? 38}
+                  onSave={(s) => saveChorusStart(bSide.key, s)}
+                />
+              )}
             </div>
             {chorus ? playBtn(bSide) : <PlayButton track={bSide} />}
           </div>
@@ -198,6 +240,7 @@ export default function SingleSlide({ single, tracks, chorus }) {
     </div>
   )
 }
+
 
 /** Cover art for a single: prefers the original local artwork, falls back to the A-side YouTube thumbnail. */
 function SingleCover({ single, track }) {

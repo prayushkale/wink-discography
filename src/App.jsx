@@ -3,6 +3,7 @@ import discography from './data/discography.json'
 import { useDeck } from './hooks/useDeck.js'
 import { PlayerProvider, usePlayer } from './player/PlayerProvider.jsx'
 import { getOverrides } from './lib/overrides.js'
+import { getSavedChorusStarts } from './lib/chorusStarts.js'
 import { extractVideoId } from './player/yt.js'
 import IntroSlide from './components/slides/IntroSlide.jsx'
 import YearDividerSlide from './components/slides/YearDividerSlide.jsx'
@@ -30,6 +31,11 @@ const albumCoverSlug = (album, i) =>
  * still starts at a plausible chorus point.
  */
 const DEFAULT_CHORUS_START = 38
+// dev-only chorus-start tuning UI: run `VITE_CHORUS_EDIT=1 npm run dev` to show
+// the per-single "CHORUS START (s)" field + Save button on showcase slides.
+// Saved values persist in localStorage (wink-chorus-starts) and are merged over
+// CHORUS_STARTS by buildSlides(), so a clean run without the flag still uses them.
+const CHORUS_EDITOR = Boolean(import.meta.env.VITE_CHORUS_EDIT)
 const CHORUS_STARTS = {
   // sugar baby love (official MV ~2:41)
   'single-01': 42,
@@ -219,10 +225,13 @@ const ALBUM_CHORUS_STARTS = {
     11: 42, // Jive Into the Night (Hyper Euro Mix)
   },
 }
-const buildChorusConfig = (single, tracks) => {
-  const est = CHORUS_STARTS[`single-${pad2(single.num)}`] ?? DEFAULT_CHORUS_START
+const buildChorusConfig = (single, tracks, savedStarts) => {
+  const base = `single-${pad2(single.num)}`
   const cfg = {}
   for (const t of tracks) {
+    // per-track saved start (single-{NN}-{role}) falls back to the single's
+    // structural estimate — each song card can carry its own value.
+    const est = savedStarts[t.key] ?? CHORUS_STARTS[base] ?? DEFAULT_CHORUS_START
     if (t.videoId) cfg[t.key] = { key: t.key, videoId: t.videoId, startSeconds: est, title: t.titleEn }
     if (t.originalVideoId) {
       cfg[`original:${t.key}`] = {
@@ -241,6 +250,7 @@ const buildChorusConfig = (single, tracks) => {
 /** build the ordered slide list: intro -> per-year (divider + releases) -> finale */
 function buildSlides(data) {
   const overrides = getOverrides()
+  const savedStarts = getSavedChorusStarts()
   const resolve = (urlOrKey, fallbackUrl) => {
     const url = overrides[urlOrKey] ?? fallbackUrl ?? null
     return url ? extractVideoId(url) : null
@@ -288,7 +298,7 @@ function buildSlides(data) {
           videoId: url ? extractVideoId(url) : null,
           originalVideoId: t.originalVideo ? extractVideoId(t.originalVideo) : null,
           originalStartSeconds: t.originalVideo
-            ? (ORIGINAL_STARTS[`${key}-${t.role || ti}`] ?? CHORUS_STARTS[key] ?? DEFAULT_CHORUS_START)
+            ? (ORIGINAL_STARTS[trackKey] ?? savedStarts[trackKey] ?? CHORUS_STARTS[key] ?? DEFAULT_CHORUS_START)
             : null,
         }
       })
@@ -305,7 +315,7 @@ function buildSlides(data) {
         // editing CHORUS_STARTS / ORIGINAL_STARTS above. Singles without a
         // chorus estimate (or without playable video) fall back to the
         // standard slide with the mini bottom player.
-        chorus: buildChorusConfig(s, tracks),
+        chorus: buildChorusConfig(s, tracks, savedStarts),
       })
     } else {
       const prefix = `a${pad2(item.coverIdx + 1)}`
@@ -313,7 +323,8 @@ function buildSlides(data) {
         ...t,
         key: `${prefix}-track-${pad2(t.no)}`,
         videoId: resolve(`${prefix}-track-${pad2(t.no)}`, t.video),
-        chorusStart: ALBUM_CHORUS_STARTS[prefix]?.[t.no] ?? DEFAULT_CHORUS_START,
+        chorusStart:
+          savedStarts[`${prefix}-track-${pad2(t.no)}`] ?? ALBUM_CHORUS_STARTS[prefix]?.[t.no] ?? DEFAULT_CHORUS_START,
       }))
       slides.push({
         type: 'album',
@@ -440,9 +451,15 @@ export default function App() {
                   single={slide.item.single}
                   tracks={slide.tracks}
                   chorus={slide.chorus}
+                  editor={CHORUS_EDITOR}
                 />
               ) : slide.type === 'album' ? (
-                <AlbumSlide entry={slide.item} tracks={slide.tracks} albumPrefix={slide.albumPrefix} />
+                <AlbumSlide
+                  entry={slide.item}
+                  tracks={slide.tracks}
+                  albumPrefix={slide.albumPrefix}
+                  editor={CHORUS_EDITOR}
+                />
               ) : (
                 <FinaleSlide data={discography} epilogue={slide.epilogue} />
               ))}
