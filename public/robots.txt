@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wink-discography.prayush.dev/sitemap.xml

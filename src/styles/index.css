@@ -21,6 +21,23 @@ body {
   color: #f1f5f9;
 }
 
+/* maker's credit, kept small in the top-right corner (static in index.html) */
+.credit {
+  position: fixed;
+  top: 10px;
+  right: 16px;
+  z-index: 40;
+  font-size: 12px;
+  color: rgba(148, 163, 184, 0.7);
+  text-decoration: none;
+}
+
+.credit:hover,
+.credit:focus-visible {
+  color: var(--wink-pink);
+  text-decoration: underline;
+}
+
 .font-display {
   font-family: 'Orbitron', 'Noto Sans JP', sans-serif;
 }
